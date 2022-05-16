@@ -1,0 +1,51 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.7'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.Kaftanchikova'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+	maven {
+		url 'https://repo.clojars.org'
+		name 'Clojars'
+	}
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+//	implementation 'org.signaut:ring-userprincipal-middleware:0.1'
+//	implementation 'io.github.nefilim.kjwt:kJWT:0.1.6'
+//	implementation 'com.hynnet:DJNativeSwing-SWT:1.0.0'
+//	implementation 'com.liferay.poshi.runner.resources:portal-HEAD:20181127145156-59148a8'
+//	implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.2.2'
+//	implementation 'com.google.code.findbugs:jsr305:3.0.2'
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'mysql:mysql-connector-java'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+
+	implementation 'com.auth0:java-jwt:3.18.3'
+	// https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+	implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
+
+
+	implementation group: 'com.google.guava', name: 'guava', version: '31.1-jre'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
